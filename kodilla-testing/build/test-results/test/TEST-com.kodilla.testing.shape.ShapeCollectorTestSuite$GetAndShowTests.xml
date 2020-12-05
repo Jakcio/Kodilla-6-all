@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.testing.shape.ShapeCollectorTestSuite$GetAndShowTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-12-05T12:41:44" hostname="DESKTOP-FCGM29K" time="0.011">
+  <properties/>
+  <testcase name="testShowFigures()" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite$GetAndShowTests" time="0.011"/>
+  <testcase name="testGetFigure()" classname="com.kodilla.testing.shape.ShapeCollectorTestSuite$GetAndShowTests" time="0.0"/>
+  <system-out><![CDATA[Name: Square, field: 4.0
+
+Name: Triangle, field: 4.0
+
+Name: Circle, field: 3.141592653589793
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

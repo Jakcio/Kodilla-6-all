@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.testing.weather.mock.WeatherForecastTestSuite" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-12-05T12:41:44" hostname="DESKTOP-FCGM29K" time="0.01">
+  <properties/>
+  <testcase name="testMedianTemperatures()" classname="com.kodilla.testing.weather.mock.WeatherForecastTestSuite" time="0.008"/>
+  <testcase name="testAverageTemperatures()" classname="com.kodilla.testing.weather.mock.WeatherForecastTestSuite" time="0.0"/>
+  <testcase name="testCalculateForecastWithMock()" classname="com.kodilla.testing.weather.mock.WeatherForecastTestSuite" time="0.0"/>
+  <system-out><![CDATA[All test passed!
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
