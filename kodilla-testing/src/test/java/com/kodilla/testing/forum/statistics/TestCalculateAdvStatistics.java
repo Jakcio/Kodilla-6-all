@@ -27,24 +27,7 @@ public class TestCalculateAdvStatistics {
     @Mock
     private Statistics statisticsMock ;
 
-    @Test
-    void testWhenZeroPosts() {
-        StatsCalculator stats = new StatsCalculator();
 
-        when(statisticsMock.userNames()).thenReturn(listOfUsers);
-        when(statisticsMock.postsCount()).thenReturn(0);
-        when(statisticsMock.commentsCount()).thenReturn(4);
-        stats.calculateAdvStatistics(statisticsMock);
-
-        Assertions.assertEquals(listOfUsers.size(), stats.calculateAdvStatistics(statisticsMock).getNumberOfUsers());
-        Assertions.assertEquals(0, stats.calculateAdvStatistics(statisticsMock).getNumberOfPosts());
-        Assertions.assertEquals(4, stats.calculateAdvStatistics(statisticsMock).getNumberOfComments());
-        Assertions.assertEquals(0, stats.calculateAdvStatistics(statisticsMock).getAveragePostPerUser());
-        Assertions.assertEquals(4 / listOfUsers.size(), stats.calculateAdvStatistics(statisticsMock).getAverageCommentPerUser(),1);
-        Assertions.assertEquals(1d, stats.calculateAdvStatistics(statisticsMock).getAverageCommentPerPost(),1);
-
-
-    }
 
     @Test
     void testWhenThousandPosts() {
@@ -58,9 +41,9 @@ public class TestCalculateAdvStatistics {
         Assertions.assertEquals(listOfUsers.size(), stats.calculateAdvStatistics(statisticsMock).getNumberOfUsers());
         Assertions.assertEquals(1000, stats.calculateAdvStatistics(statisticsMock).getNumberOfPosts());
         Assertions.assertEquals(4, stats.calculateAdvStatistics(statisticsMock).getNumberOfComments());
-        Assertions.assertEquals(1000 /listOfUsers.size(), stats.calculateAdvStatistics(statisticsMock).getAveragePostPerUser(),1);
-        Assertions.assertEquals(4 / listOfUsers.size(), stats.calculateAdvStatistics(statisticsMock).getAverageCommentPerUser(),1);
-        Assertions.assertEquals(1d/1000, stats.calculateAdvStatistics(statisticsMock).getAverageCommentPerPost(),1);
+        Assertions.assertEquals(250, stats.calculateAdvStatistics(statisticsMock).getAveragePostPerUser(),1);
+        Assertions.assertEquals(1, stats.calculateAdvStatistics(statisticsMock).getAverageCommentPerUser(),1);
+        Assertions.assertEquals(1, stats.calculateAdvStatistics(statisticsMock).getAverageCommentPerPost(),1);
 
 
 
@@ -77,9 +60,9 @@ public class TestCalculateAdvStatistics {
         Assertions.assertEquals(listOfUsers.size(), stats.calculateAdvStatistics(statisticsMock).getNumberOfUsers());
         Assertions.assertEquals(10, stats.calculateAdvStatistics(statisticsMock).getNumberOfPosts());
         Assertions.assertEquals(0, stats.calculateAdvStatistics(statisticsMock).getNumberOfComments());
-        Assertions.assertEquals(10d / listOfUsers.size(), stats.calculateAdvStatistics(statisticsMock).getAveragePostPerUser());
-        Assertions.assertEquals(0d / listOfUsers.size(), stats.calculateAdvStatistics(statisticsMock).getAverageCommentPerUser(),1);
-        Assertions.assertEquals(0 / 10, stats.calculateAdvStatistics(statisticsMock).getAverageCommentPerPost());
+        Assertions.assertEquals(2.5, stats.calculateAdvStatistics(statisticsMock).getAveragePostPerUser());
+        Assertions.assertEquals(0, stats.calculateAdvStatistics(statisticsMock).getAverageCommentPerUser(),1);
+        Assertions.assertEquals(0, stats.calculateAdvStatistics(statisticsMock).getAverageCommentPerPost());
     }
 
     @Test
@@ -92,11 +75,11 @@ public class TestCalculateAdvStatistics {
         stats.calculateAdvStatistics(statisticsMock);
 
         Assertions.assertEquals(listOfUsers.size(), stats.calculateAdvStatistics(statisticsMock).getNumberOfUsers());
-        Assertions.assertEquals(20d, stats.calculateAdvStatistics(statisticsMock).getNumberOfPosts());
-        Assertions.assertEquals(200d, stats.calculateAdvStatistics(statisticsMock).getNumberOfComments());
-        Assertions.assertEquals(20d / listOfUsers.size(), stats.calculateAdvStatistics(statisticsMock).getAveragePostPerUser());
-        Assertions.assertEquals(200d / listOfUsers.size(), stats.calculateAdvStatistics(statisticsMock).getAverageCommentPerUser(),1);
-        Assertions.assertEquals(200d / 20d, stats.calculateAdvStatistics(statisticsMock).getAverageCommentPerPost());
+        Assertions.assertEquals(20, stats.calculateAdvStatistics(statisticsMock).getNumberOfPosts());
+        Assertions.assertEquals(200, stats.calculateAdvStatistics(statisticsMock).getNumberOfComments());
+        Assertions.assertEquals(5, stats.calculateAdvStatistics(statisticsMock).getAveragePostPerUser());
+        Assertions.assertEquals(50, stats.calculateAdvStatistics(statisticsMock).getAverageCommentPerUser(),1);
+        Assertions.assertEquals(10, stats.calculateAdvStatistics(statisticsMock).getAverageCommentPerPost());
     }
 
     @Test
@@ -110,11 +93,11 @@ public class TestCalculateAdvStatistics {
         stats.calculateAdvStatistics(statisticsMock);
 
         Assertions.assertEquals(listOfUsers.size(), stats.calculateAdvStatistics(statisticsMock).getNumberOfUsers());
-        Assertions.assertEquals(40d, stats.calculateAdvStatistics(statisticsMock).getNumberOfPosts());
-        Assertions.assertEquals(30d, stats.calculateAdvStatistics(statisticsMock).getNumberOfComments());
-        Assertions.assertEquals(40d / listOfUsers.size(), stats.calculateAdvStatistics(statisticsMock).getAveragePostPerUser());
-        Assertions.assertEquals(30d / listOfUsers.size(), stats.calculateAdvStatistics(statisticsMock).getAverageCommentPerUser(),1);
-        Assertions.assertEquals(30d / 40d, stats.calculateAdvStatistics(statisticsMock).getAverageCommentPerPost());
+        Assertions.assertEquals(40, stats.calculateAdvStatistics(statisticsMock).getNumberOfPosts());
+        Assertions.assertEquals(30, stats.calculateAdvStatistics(statisticsMock).getNumberOfComments());
+        Assertions.assertEquals(10, stats.calculateAdvStatistics(statisticsMock).getAveragePostPerUser());
+        Assertions.assertEquals(7.5, stats.calculateAdvStatistics(statisticsMock).getAverageCommentPerUser(),1);
+        Assertions.assertEquals(0.75, stats.calculateAdvStatistics(statisticsMock).getAverageCommentPerPost());
     }
 
     @Test
@@ -130,10 +113,10 @@ public class TestCalculateAdvStatistics {
 
         Assertions.assertEquals(listOfUsers.size(), stats.calculateAdvStatistics(statisticsMock).getNumberOfUsers());
         Assertions.assertEquals(100, stats.calculateAdvStatistics(statisticsMock).getNumberOfPosts());
-        Assertions.assertEquals(20d, stats.calculateAdvStatistics(statisticsMock).getNumberOfComments());
+        Assertions.assertEquals(20, stats.calculateAdvStatistics(statisticsMock).getNumberOfComments());
         Assertions.assertEquals(0, stats.calculateAdvStatistics(statisticsMock).getAveragePostPerUser(),1);
         Assertions.assertEquals(0, stats.calculateAdvStatistics(statisticsMock).getAverageCommentPerUser(),1);
-        Assertions.assertEquals(20d / 100d, stats.calculateAdvStatistics(statisticsMock).getAverageCommentPerPost());
+        Assertions.assertEquals(0.2, stats.calculateAdvStatistics(statisticsMock).getAverageCommentPerPost());
     }
     @Test
     void testWhenHundredUsers() {
@@ -150,10 +133,10 @@ public class TestCalculateAdvStatistics {
 
         Assertions.assertEquals(listOfUsers.size(), stats.calculateAdvStatistics(statisticsMock).getNumberOfUsers());
         Assertions.assertEquals(50, stats.calculateAdvStatistics(statisticsMock).getNumberOfPosts());
-        Assertions.assertEquals(20d, stats.calculateAdvStatistics(statisticsMock).getNumberOfComments());
-        Assertions.assertEquals(50/listOfUsers.size(), stats.calculateAdvStatistics(statisticsMock).getAveragePostPerUser(),1);
-        Assertions.assertEquals(50/listOfUsers.size(), stats.calculateAdvStatistics(statisticsMock).getAverageCommentPerUser(),1);
-        Assertions.assertEquals(20d / 50d, stats.calculateAdvStatistics(statisticsMock).getAverageCommentPerPost());
+        Assertions.assertEquals(20, stats.calculateAdvStatistics(statisticsMock).getNumberOfComments());
+        Assertions.assertEquals(0.5, stats.calculateAdvStatistics(statisticsMock).getAveragePostPerUser(),1);
+        Assertions.assertEquals(0.2, stats.calculateAdvStatistics(statisticsMock).getAverageCommentPerUser(),1);
+        Assertions.assertEquals(0.4, stats.calculateAdvStatistics(statisticsMock).getAverageCommentPerPost());
 
     }
 
