@@ -40,7 +40,7 @@ public class WorldTestSuite {
         BigDecimal expectedValue = new BigDecimal("1508507273");
 
         //When
-        BigDecimal totalPeople = earth.getContinents().stream().flatMap(continent -> continent.getCountryList().stream()).map(Counter::getPeopleQuantity).reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
+        BigDecimal totalPeople = earth.getPeopleQuantity();
         //Then
         Assert.assertEquals(expectedValue, totalPeople);
 
